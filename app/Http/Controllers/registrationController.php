@@ -39,7 +39,10 @@ class registrationController extends Controller
 
     public function showcust(Request $req)
     {
-         $customer= new Customer;
+        // p($req->all());
+        // die; 
+        
+        $customer= new Customer;
          $customer->customer_name=$req['uname'];
          $customer->customer_email=$req['uemail'];
          $customer->customer_gender=$req['gender'];
