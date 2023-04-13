@@ -60,7 +60,8 @@
                     <td>{{$item->customer_address}}</td>
                     <td>{{$item->Customer_State}}</td>
                     <td>{{$item->Customer_Country}}</td>
-                    <td>{{get_formatted_date($item->customer_dob,'d-M-Y')}}</td>
+                    <!--<td>{{get_formatted_date($item->customer_dob,'d-M-Y')}}</td>-->
+                    <td>{{$item->customer_dob}}</td>
                     <td>
 
                     <a href="{{url('/getcustomer')}}" class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Add"><i class="fa fa-table"></i></a>

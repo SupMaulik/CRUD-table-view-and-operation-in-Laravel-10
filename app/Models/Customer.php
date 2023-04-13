@@ -11,4 +11,16 @@ class Customer extends Model
     protected $table = "customers";
     protected $primaryKey = "customer_id";
 
+  //Mutater is use when attribute value is set 
+    public function setCustomerNameAttribute($value)
+     {
+
+        $this->attributes['customer_name']=ucwords($value);
+     }
+     
+     //asscessor is use when get attribute value
+     public function getCustomerDobAttribute($value)
+     {
+        return date('d-M-Y',strtotime($value));
+     }
 }
