@@ -6,6 +6,8 @@ use App\Http\Controllers\singleActionController;
 use App\Http\Controllers\photoController;
 use App\Http\Controllers\registrationController;
 use App\Models\Customer;
+use Illuminate\Http\Request;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -82,4 +84,26 @@ Route::get('/regform',function(){
  Route::get('/customer/edit/{id}',[registrationController::class,'edit_customer'])->name('edit_cust');
  Route::get('/customer/view/{id}',[registrationController::class,'view_customer']);
  Route::post('/customer/update/{id}',[registrationController::class,'update'])->name('cust_update');
+ Route::get('session-all',function(){
+    
+    $session=session()->all();
+    p($session);
+
+ });
+
+ Route::get('set-session',function(Request $req){
+    $req->session()->put('User_Name','Suprabhat');
+    $req->session()->put('User_Id','12345');
+    $req->session()->flash('status',"Succcess");
+    return redirect('session-all');
+
+ });
+
+ Route::get('destroy-session',function(){
+
+         session()->forget(['User_Name','User_Id']);
+         return redirect('session-all');
+
+ });
+
  

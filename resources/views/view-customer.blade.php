@@ -36,6 +36,12 @@
 <body>
 <div class="m-4">
     <div class="table-responsive"> 
+        @if(session()->has('User_Name'))
+           {{session()->get("User_Name")}}
+           {{session()->get("status")}}
+           @else
+           Geust
+        @endif
     <table id="example" class="table table-striped" style="width:100%">
             <thead>
                 <tr>
